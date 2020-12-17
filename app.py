@@ -17,4 +17,4 @@ def upload_predict():
     return render_template("index.html", image_loc=None)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=12000, debug=True)
+    app.run(host="0.0.0.0", port=9001, debug=True)
