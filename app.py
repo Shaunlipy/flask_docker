@@ -3,7 +3,8 @@ from flask import Flask
 from flask import request, render_template
 
 app = Flask(__name__)
-UPLOAD_FOLDER = "/usr/src/app/static"
+# UPLOAD_FOLDER = "/usr/src/app/static"
+UPLOAD_FOLDER = 'static'
 
 @app.route("/", methods=["GET", "POST"])
 def upload_predict():
@@ -17,4 +18,6 @@ def upload_predict():
     return render_template("index.html", image_loc=None)
 
 if __name__ == '__main__':
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER, exists_ok=True)
     app.run(host="0.0.0.0", port=9001, debug=True)
